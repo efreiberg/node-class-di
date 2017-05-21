@@ -29,3 +29,12 @@ module.exports = class b {
     }
 }
 ```
+
+### Initialization
+```
+const lib = require('node-class-di');
+
+lib.init(function(){
+    console.log('DONE!');
+})
+```
