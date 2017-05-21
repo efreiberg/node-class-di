@@ -1,5 +1,5 @@
 {
-  "name": "class-di",
+  "name": "class-inject",
   "version": "0.0.1",
   "description": "Class-based dependency injection for node.js",
   "main": "index.js",
