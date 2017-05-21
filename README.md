@@ -32,7 +32,7 @@ module.exports = class b {
 
 ### Initialization
 ```
-const lib = require('class-di');
+const lib = require('class-inject');
 
 lib.init(function(){
     console.log('DONE!');
