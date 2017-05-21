@@ -1,18 +1,21 @@
 # node-class-di
-Class-based, async-supported, dependency injection.  Services are discovered by modules in which their filenames end in `.inject.js` and that module exports a class with an `onInit` method.  Dependencies are injected into this method, as requested, as singleton class instances.
+Class-based, async-supported, dependency injection for node.js.  Injectable modules must have a filename that ends in `.inject.js` and exports only a class with an `onInit` method.  Dependencies are injected into this method, as requested, as singleton class instances.  Specify `callback` as the final parameter if the `onInit` method needs to be async.
 
 ## Example Usage
+
+### foo.inject.js
 ```
 module.exports = class a {
     constructor() {
 
     }
     onInit(b, callback) {
-        b.fooAsync(callback);
+        b.asyncMethod(callback);
     }
 }
 ```
 
+### bar.inject.js
 ```
 module.exports = class b {
     constructor() {
@@ -21,7 +24,7 @@ module.exports = class b {
     onInit(logger) {
         logger.debug('Initializing b...');
     }
-    fooAsync(cb) {
+    asyncMethod(cb) {
         setTimeout(() => cb());
     }
 }
