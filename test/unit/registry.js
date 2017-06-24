@@ -76,4 +76,16 @@ describe("Register Class Tests", function () {
         assert.isOk(getRegistry().get('Tester1'));
         assert.isOk(getRegistry().get('Tester2'));
     });
+    it("Param Parsing: Ignore Parenthesis Content After Opening Brace", function () {
+        let c1 = class Tester1 {
+            constructor() { }
+            onInit() { 
+                var foo = (something)=>{};
+            }
+        }
+        registerClass(c1);
+        assert.equal(getRegistry().size, 1);
+        assert.isOk(getRegistry().get('Tester1'));
+        assert.equal(getRegistry().get('Tester1').dependencies.length, 0)
+    });
 });
