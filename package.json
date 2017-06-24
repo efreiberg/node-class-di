@@ -1,6 +1,6 @@
 {
   "name": "class-inject",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Class-based dependency injection for node.js",
   "main": "index.js",
   "scripts": {
